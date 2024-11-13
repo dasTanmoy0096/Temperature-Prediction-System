@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Cambria', sans-serif;
+            background-color: #f7f7f7;
+        }
+        .login {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0074d9;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<div class="login">
+    <h1>Temperature Prediction System</h1>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="city" placeholder="City" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <br>
+    <br>
+    <div class="values">
+        <p style="background-color: lightyellow;">Month: <span>{{ month }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Hour: <span>{{ hour }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Latitude: <span>{{ latitude }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Longitude: <span>{{ longitude }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Minimum Temperature: <span>{{ minTemperature }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Maximum Temperature: <span>{{ maxTemperature }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Pressure: <span>{{ pressure }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Humidity: <span>{{ humidity }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Visibility: <span>{{ visibility }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Wind Speed: <span>{{ windSpeed }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Wind Direction: <span>{{ windDirection }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Wind Gust: <span>{{ windGust }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Precipitation: <span>{{ precipitation }}</span></p>
+        <br>
+        <p style="background-color: lightyellow;">Cloud Cover: <span>{{ cloudCover }}</span></p>
+
+        <br>
+        <br>
+        <p style="background-color: lightblue;">Actual Temperature: <span>{{ actualTemperature }}</span></p>
+        <br>
+        <p style="background-color: lightblue;">Predicted Temperature: <span>{{ predictedTemperature }}</span></p>
+        <br>
+        <p style="background-color: lightblue;">Actual Feels Like: <span>{{ actualFeelsLike }}</span></p>
+        <br>
+        <p style="background-color: lightblue;">Predicted Feels Like: <span>{{ predictedFeelsLike }}</span></p>
+    </div>
+</div>
+</body>
+</html>
